@@ -90,6 +90,11 @@ lists on the fly with an SQLite DB.
       <replace type="package-info" from="@package_version@" to="version"/>
      </file>
     </dir> <!-- /MP3 -->
+    <dir name="tests">
+     <file role="test" name="bug-8369.php">
+      <replace type="package-info" from="@package_version@" to="version"/>
+     </file>
+    </dir> <!-- /tests -->
    </dir> <!-- / -->
   </filelist>
  </release>
