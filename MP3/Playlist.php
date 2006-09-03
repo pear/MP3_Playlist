@@ -146,12 +146,6 @@ class MP3_Playlist
     // {{{ Object Variables
 
     /**
-     * Name of the playlist. suffix is added automatically as per method used
-     * @var string
-     */
-    public $fileName = 'playlist';
-
-    /**
      * Debug value
      * @var string
      */
@@ -538,17 +532,20 @@ class MP3_Playlist
     /**
      * Save the generated playlist into file.
      *
+     * @param   string $filename (optional) A filename for save
+     *                                     (without file extension).
+     *
      * @throws  PEAR_Exception
      * @return  bool TRUE
      * @see     MP3_Playlist_Common::save()
      */
-    public function save()
+    public function save($filename = 'playlist')
     {
         if (!is_object($this->playlist) || !is_a($this->playlist, 'MP3_Playlist_Common')) {
             throw new PEAR_Exception(self::E_INVALID_PLAYLIST);
         }
 
-        return $this->playlist->save($this->outputDirectory, $this->fileName);
+        return $this->playlist->save($this->outputDirectory, $filename);
     }
 
     // }}}
@@ -557,17 +554,20 @@ class MP3_Playlist
     /**
      * Send the generated playlist to browser directly.
      *
+     * @param   string $filename (optional) A filename for send
+     *                                      (without file extension).
+     *
      * @throws  PEAR_Exception
      * @return  bool TRUE
      * @see     MP3_Playlist_Common::send()
      */
-    public function send()
+    public function send($filename = 'playlist')
     {
         if (!is_object($this->playlist) || !is_a($this->playlist, 'MP3_Playlist_Common')) {
             throw new PEAR_Exception(self::E_INVALID_PLAYLIST);
         }
 
-        return $this->playlist->send($this->fileName);
+        return $this->playlist->send($filename);
     }
 
     // }}}
