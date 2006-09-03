@@ -51,7 +51,7 @@ if (isset($_POST['submit'])) {
         }
 
         // Call output method.
-        $playlist->$_POST['output']();
+        $playlist->$_POST['output']($_POST['FileName']);
 
         // Decoration.
         if ($_POST['output'] == 'show') {
