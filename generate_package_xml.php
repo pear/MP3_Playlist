@@ -1,34 +1,52 @@
 <?php
 require_once('PEAR/PackageFileManager.php');
+require_once 'PEAR/PackageFileManager/Cvs.php';
 
 $pkg = new PEAR_PackageFileManager;
 
 $packagedir = dirname(__FILE__);
 $self = basename(__FILE__);
 
-$desc = "MP3_Playlist is a php library to facilitate the creation and to some extend the rendering of MP3 playlists.
-It scans a local folder with all the MP3 files and outputs the playlist in several formats including M3U, SMIL, XML, XHTML with the possibility to backup the lists on the fly with an SQLite DB.";
+$summary = <<<EOT
+Library to create MP3 playlists on the fly, several formats supported including XML, RSS and XHTML
+EOT;
+
+$desc = <<<EOT
+MP3_Playlist is a php library to facilitate the creation and to some
+extend the rendering of MP3 playlists. It scans a local folder with
+all the MP3 files and outputs the playlist in several formats
+including M3U, SMIL, XML, XHTML with the possibility to backup the
+lists on the fly with an SQLite DB.
+EOT;
+
+$notes = <<<EOT
+* Fixed bug #8369: Send does not take care of filename parameter
+* Minor fixed on MP3_Playlist class.
+* Minor fixed on examples
+* Added test files
+EOT;
 
 $options = array(
     'simpleoutput'      => true,
-    'doctype'           => 'D:\Net\www\htdocs\PEAR\PEAR\data\PEAR\package.dtd',
     'package'           => 'MP3_Playlist',
     'license'           => 'PHP License',
     'baseinstalldir'    => '',
-    'version'           => '0.5.0alpha1',
+    'version'           => '0.5.1alpha1',
     'packagedirectory'  => $packagedir,
     'pathtopackagefile' => $packagedir,
     'state'             => 'alpha',
-    'filelistgenerator' => 'file',
-    'notes'             => 'Initial release of MP3_Playlist',
-    'summary'           => 'Library to create MP3 playlists on the fly, several formats supported including XML, RSS and XHTML',
-    'description'       => $desc,
+    'filelistgenerator' => 'Cvs',
+    'notes'             => $notes,
+    'summary'           => $summary,
+    'description'       => str_replace("\n", '', $desc),
     'dir_roles'         => array(
         'docs'      => 'doc',
-        'data'      => 'data'
+        'data'      => 'data',
+        'tests'     => 'test'
     ),
     'ignore'            => array(
         'package.xml',
+        'package2.xml',
         '*.tgz',
         $self
     )
