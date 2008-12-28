@@ -155,50 +155,50 @@ class MP3_Playlist
      * Directory to Parse
      * @var string
      */
-    private $parseDirectory;
+    protected $parseDirectory;
 
     /**
      * Output directory, where the playlist is saved
      * @var string
      */
-    private $outputDirectory;
+    protected $outputDirectory;
 
     /**
      * Url to append on the playlist
      * @var string
      */
-    private $baseUrl;
+    protected $baseUrl;
 
     /**
      * List of songs in an array, formatted after parsing
      * @var array
      */
-    private $list = array();
+    protected $list = array();
 
     /**
      * MP3_ID Object
      * @var string
      */
-    private $mp3;
+    protected $mp3;
 
     /**
      * List of files including append directory, location and ID3 tags for XML
      * and other manipulation
      * @var array
      */
-    private $merged = array();
+    protected $merged = array();
 
     /**
-     * private variable to check if the method Mergelist is called
+     * protected variable to check if the method Mergelist is called
      * @var string
      */
-    private $isMerged = false;
+    protected $isMerged = false;
 
     /**
      * Driver object instance.
      * @var object
      */
-    private $playlist = null;
+    protected $playlist = null;
 
     // }}}
     // {{{ Constructor
@@ -220,7 +220,7 @@ class MP3_Playlist
     public function __construct ($dir, $outdir, $baseurl, $debug = false)
     {
         // Taking the values from the constructor and assigning it to the
-        // private variables
+        // protected variables
         $this->parseDirectory = self::fixPath($dir);
         $this->outputDirectory = self::fixPath($outdir);
 
@@ -258,7 +258,7 @@ class MP3_Playlist
      *
      * @param string $msg Message.
      */
-    private function debug($message)
+    protected function debug($message)
     {
         if ($this->debug == true) {
             print  'MP3_Playlist Debug: ' . $message . "<br />\n";
@@ -298,7 +298,7 @@ class MP3_Playlist
      *
      * @return  string URL.
      */
-    private function generateURL($absPath)
+    protected function generateURL($absPath)
     {
         $absPath = str_replace($this->parseDirectory, '', $absPath);
         $paths = explode('/', $absPath);
@@ -334,7 +334,7 @@ class MP3_Playlist
      * @see     MP3_Playlist::fixPath()
      * @see     MP3_Playlist::generateURL()
      */
-    private function parse($dir = false)
+    protected function parse($dir = false)
     {
         if ($dir == false) {
             $dir = $this->parseDirectory;
@@ -390,7 +390,7 @@ class MP3_Playlist
      * @return  bool TRUE
      * @see     MP3_Id::read()
      */
-    private function mergeList()
+    protected function mergeList()
     {
         // We will use this in case someone tries to call a method like
         // makeXHTML before merging
