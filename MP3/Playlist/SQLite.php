@@ -1,8 +1,5 @@
 <?php
 /* vim: set expandtab tabstop=4 shiftwidth=4 softtabstop=4 foldmethod=marker: */
-
-// {{{ Header
-
 /**
  * File contains MP3_Playlist_SQLite class.
  *
@@ -22,18 +19,18 @@
  * obtain it through the world-wide-web, please send a note to
  * license@php.net so we can mail you a copy immediately.
  *
- * @category    File Formats
- * @package     MP3_Playlist
- * @author      David Costa <gurugeek@php.net>
- * @author      Ashley Hewson <morbidness@gmail.com>
- * @author      Firman Wandayandi <firman@php.net>
- * @copyright   Copyright (c) 2004-2005 David Costa
- * @license     http://www.php.net/license/3_0.txt
- *              The PHP License, version 3.0
- * @version     CVS: $Id$
+ * @category  File_Formats
+ * @package   MP3_Playlist
+ * @author    David Costa <gurugeek@php.net>
+ * @author    Ashley Hewson <morbidness@gmail.com>
+ * @author    Firman Wandayandi <firman@php.net>
+ * @copyright 2004-2005 David Costa
+ * @license   http://www.php.net/license/3_0.txt
+ *            The PHP License, version 3.0
+ * @version   CVS: $Id$
+ * @link      http://pear.php.net/package/MP3_Playlist
  */
 
-// }}}
 // {{{ Dependencies
 
 /**
@@ -48,15 +45,16 @@ require_once 'MP3/Playlist/Common.php';
  * Class MP3_Playlist_SMILL for generate and stores an sqlite based
  * playlist.
  *
- * @category    File Formats
- * @package     MP3_Playlist
- * @author      David Costa <gurugeek@php.net>
- * @author      Ashley Hewson <morbidness@gmail.com>
- * @author      Firman Wandayandi <firman@php.net>
- * @copyright   Copyright (c) 2004-2005 David Costa
- * @license     http://www.php.net/license/3_0.txt
- *              The PHP License, version 3.0
- * @version     Release: @package_version@
+ * @category  File_Formats
+ * @package   MP3_Playlist
+ * @author    David Costa <gurugeek@php.net>
+ * @author    Ashley Hewson <morbidness@gmail.com>
+ * @author    Firman Wandayandi <firman@php.net>
+ * @copyright 2004-2005 David Costa
+ * @license   http://www.php.net/license/3_0.txt
+ *            The PHP License, version 3.0
+ * @version   Release: @package_version@
+ * @link      http://pear.php.net/package/MP3_Playlist
  */
 class MP3_Playlist_SQLite extends MP3_Playlist_Common
 {
@@ -102,7 +100,7 @@ class MP3_Playlist_SQLite extends MP3_Playlist_Common
      * Optionally creates a database and the table or can be set to
      * add the extended playlist in an existing database and table.
      *
-     * @param   array   $params Make parameters.
+     * @param array $params Make parameters.
      * <pre>
      * db           string  SQLite database name
      * table        string  SQLite database table name
@@ -126,9 +124,10 @@ class MP3_Playlist_SQLite extends MP3_Playlist_Common
         }
 
         $dbname = $params['db'];
-        $table = $params['table'];
+        $table  = $params['table'];
+
         $maketable = isset($params['maketable']) ? $params['maketable'] : true;
-        $columns = isset($params['columns']) ? $params['columns'] : false;
+        $columns   = isset($params['columns']) ? $params['columns'] : false;
 
         // check if the user defined his own columns details
         if (is_array($columns)) {
@@ -159,8 +158,7 @@ class MP3_Playlist_SQLite extends MP3_Playlist_Common
                                     " {$this->columns['artist']} varchar(200), " .
                                     " {$this->columns['album']} varchar (200), " .
                                     " {$this->columns['genre']} varchar(200) " .
-                                    ')'
-                                   );
+                                    ')');
 
 
             // return an error in case that the table cannot be created
@@ -169,14 +167,14 @@ class MP3_Playlist_SQLite extends MP3_Playlist_Common
             }
         }
 
-        foreach ($this->merged as $prepared){
+        foreach ($this->merged as $prepared) {
             // escaping each of the values
-            $fullpath   = sqlite_escape_string($prepared['FullPath']);
-            $url        = sqlite_escape_string($prepared['URL']);
-            $title      = sqlite_escape_string($prepared['title']);
-            $artist     = sqlite_escape_string($prepared['artist']);
-            $album      = sqlite_escape_string($prepared['album']);
-            $genre      = sqlite_escape_string($prepared['genre']);
+            $fullpath = sqlite_escape_string($prepared['FullPath']);
+            $url      = sqlite_escape_string($prepared['URL']);
+            $title    = sqlite_escape_string($prepared['title']);
+            $artist   = sqlite_escape_string($prepared['artist']);
+            $album    = sqlite_escape_string($prepared['album']);
+            $genre    = sqlite_escape_string($prepared['genre']);
 
             // insert query preparation
             $sql = "INSERT INTO $table (

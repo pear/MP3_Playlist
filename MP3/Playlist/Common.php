@@ -1,8 +1,5 @@
 <?php
 /* vim: set expandtab tabstop=4 shiftwidth=4 softtabstop=4 foldmethod=marker: */
-
-// {{{ Header
-
 /**
  * File contains MP3_Playlist_Common class.
  *
@@ -22,28 +19,30 @@
  * obtain it through the world-wide-web, please send a note to
  * license@php.net so we can mail you a copy immediately.
  *
- * @category    File Formats
- * @package     MP3_Playlist
- * @author      Firman Wandayandi <firman@php.net>
- * @copyright   Copyright (c) 2004-2005 David Costa
- * @license     http://www.php.net/license/3_0.txt
- *              The PHP License, version 3.0
- * @version     CVS: $Id$
+ * @category  File_Formats
+ * @package   MP3_Playlist
+ * @author    Firman Wandayandi <firman@php.net>
+ * @copyright 2004-2005 David Costa
+ * @license   http://www.php.net/license/3_0.txt
+ *            The PHP License, version 3.0
+ * @version   CVS: $Id$
+ * @link      http://pear.php.net/package/MP3_Playlist
  */
-
-// }}}
 // {{{ Class: MP3_Playlist_Common
 
 /**
  * Abstract class of MP3_Playlist drivers class.
  *
- * @category    File Formats
- * @package     MP3_Playlist
- * @author      Firman Wandayandi <firman@php.net>
- * @copyright   Copyright (c) 2004-2005 David Costa
- * @license     http://www.php.net/license/3_0.txt
- *              The PHP License, version 3.0
- * @version     Release: @package_version@
+ * @category  File_Formats
+ * @package   MP3_Playlist
+ * @author    David Costa <gurugeek@php.net>
+ * @author    Ashley Hewson <morbidness@gmail.com>
+ * @author    Firman Wandayandi <firman@php.net>
+ * @copyright 2004-2005 David Costa
+ * @license   http://www.php.net/license/3_0.txt
+ *            The PHP License, version 3.0
+ * @version   Release: @package_version@
+ * @link      http://pear.php.net/package/MP3_Playlist
  * @abstract
  */
 abstract class MP3_Playlist_Common
@@ -124,9 +123,9 @@ abstract class MP3_Playlist_Common
     /**
      * Constructor
      *
-     * @param   object  $playlist An instance of MP3_Playlist object.
-     * @param   bool    $shuffle  Whether to shuffle the playlist or not.
-     * @param   bool    $debug    Whether to show debug message or not.
+     * @param object $playlist An instance of MP3_Playlist object.
+     * @param bool   $shuffle  Whether to shuffle the playlist or not.
+     * @param bool   $debug    Whether to show debug message or not.
      *
      * @see     MP3_Playlist::getList()
      * @see     MP3_Playlist::getMerged()
@@ -134,10 +133,11 @@ abstract class MP3_Playlist_Common
     public function __construct(MP3_Playlist $playlist, $shuffle = false,
                                 $debug = false)
     {
-        $this->playlist = $playlist;
+        $this->playlist  = $playlist;
         $this->isShuffle = $shuffle;
-        $this->debug = $debug;
-        $this->list = $this->playlist->getList();
+        $this->debug     = $debug;
+        $this->list      = $this->playlist->getList();
+
         if ($this->isRequiredMerged) {
             $this->merged = $this->playlist->getMerged();
         }
@@ -149,11 +149,13 @@ abstract class MP3_Playlist_Common
     /**
      * Output debug message.
      *
-     * @param   string $msg Message.
+     * @param string $message Message.
+     *
+     * @return void
      */
     final private function debug($message)
     {
-        if ($this->debug == true) {
+        if ($this->debug) {
             print  'MP3_Playlist Debug: ' . $message . "<br />\n";
         }
     }
@@ -164,7 +166,9 @@ abstract class MP3_Playlist_Common
     /**
      * Generates the playlist.
      *
-     * @param   array $params Make parameters.
+     * @param array $params Make parameters.
+     *
+     * @return void
      */
     public function make($params = array())
     {
@@ -177,8 +181,8 @@ abstract class MP3_Playlist_Common
     /**
      * Save the generates playlist into file.
      *
-     * @param   string $dir Directory
-     * @param   string $filename Filename
+     * @param string $dir      Directory
+     * @param string $filename Filename
      *
      * @throws  PEAR_Exception
      * @return  bool TRUE
@@ -192,7 +196,7 @@ abstract class MP3_Playlist_Common
         $file = $dir . '/' . $filename . '.' . $this->fileExtension;
 
         // trying to create the file in the relevant output directory
-        $fp = @fopen($file,'w+');
+        $fp = @fopen($file, 'w+');
 
         // checking if we cannot create the file return an error with details
         if (!@$fp) {
@@ -215,8 +219,9 @@ abstract class MP3_Playlist_Common
     /**
      * Send the generated playlist to browser direclty.
      *
-     * @param   string $filename Filename, if the format not viewable by browser
+     * @param string $filename Filename, if the format not viewable by browser
      *                         send method will be switch into download mode.
+     *
      * @throws  PEAR_Exception
      * @return  bool TRUE
      */
@@ -246,6 +251,8 @@ abstract class MP3_Playlist_Common
 
     /**
      * Show the generated playlist result.
+     *
+     * @return string
      */
     public function show()
     {

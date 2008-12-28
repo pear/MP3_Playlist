@@ -1,8 +1,5 @@
 <?php
 /* vim: set expandtab tabstop=4 shiftwidth=4 softtabstop=4 foldmethod=marker: */
-
-// {{{ Header
-
 /**
  * File contains MP3_Playlist_XHTML class.
  *
@@ -22,18 +19,18 @@
  * obtain it through the world-wide-web, please send a note to
  * license@php.net so we can mail you a copy immediately.
  *
- * @category    File Formats
- * @package     MP3_Playlist
- * @author      David Costa <gurugeek@php.net>
- * @author      Ashley Hewson <morbidness@gmail.com>
- * @author      Firman Wandayandi <firman@php.net>
- * @copyright   Copyright (c) 2004-2005 David Costa
- * @license     http://www.php.net/license/3_0.txt
- *              The PHP License, version 3.0
- * @version     CVS: $Id$
+ * @category  File_Formats
+ * @package   MP3_Playlist
+ * @author    David Costa <gurugeek@php.net>
+ * @author    Ashley Hewson <morbidness@gmail.com>
+ * @author    Firman Wandayandi <firman@php.net>
+ * @copyright 2004-2005 David Costa
+ * @license   http://www.php.net/license/3_0.txt
+ *            The PHP License, version 3.0
+ * @version   CVS: $Id$
+ * @link      http://pear.php.net/package/MP3_Playlist
  */
 
-// }}}
 // {{{ Dependencies
 
 /**
@@ -47,15 +44,16 @@ require_once 'MP3/Playlist/Common.php';
 /**
  * Class MP3_Playlist_XHTML, generates the XHTML page for playlist.
  *
- * @category    File Formats
- * @package     MP3_Playlist
- * @author      David Costa <gurugeek@php.net>
- * @author      Ashley Hewson <morbidness@gmail.com>
- * @author      Firman Wandayandi <firman@php.net>
- * @copyright   Copyright (c) 2004-2005 David Costa
- * @license     http://www.php.net/license/3_0.txt
- *              The PHP License, version 3.0
- * @version     Release: @package_version@
+ * @category  File_Formats
+ * @package   MP3_Playlist
+ * @author    David Costa <gurugeek@php.net>
+ * @author    Ashley Hewson <morbidness@gmail.com>
+ * @author    Firman Wandayandi <firman@php.net>
+ * @copyright 2004-2005 David Costa
+ * @license   http://www.php.net/license/3_0.txt
+ *            The PHP License, version 3.0
+ * @version   Release: @package_version@
+ * @link      http://pear.php.net/package/MP3_Playlist
  */
 class MP3_Playlist_XHTML extends MP3_Playlist_Common
 {
@@ -89,7 +87,7 @@ class MP3_Playlist_XHTML extends MP3_Playlist_Common
      * It can also generates the mere tables and therefore allows the user
      * to customize the look and feel
      *
-     * @param   array $params Make parameters.
+     * @param array $params Make parameters.
      * <pre>
      * title    string  Page title.
      * fullpage bool    (optional) If TRUE it will generate a full XHTML page,
@@ -105,24 +103,24 @@ class MP3_Playlist_XHTML extends MP3_Playlist_Common
                                      ' "title" as page title', -1);
         }
 
-        $title = $params['title'];
+        $title    = $params['title'];
         $fullpage = isset($params['fullpage']) ? $params['fullpage'] : true;
 
         // Preparing the numbers
         $numloop = 0;
 
         // Checking if we are producing a shuffled playlist
-        if ($this->isShuffle == true)  {
+        if ($this->isShuffle) {
             shuffle($this->merged);
         }
 
         $xhtmlLoop = '';
         // creating the tables
         foreach ($this->merged as $prepared) {
-            $prepared['title'] = htmlspecialchars($prepared['title']);
+            $prepared['title']  = htmlspecialchars($prepared['title']);
             $prepared['artist'] = htmlspecialchars($prepared['artist']);
-            $prepared['album'] = htmlspecialchars($prepared['album']);
-            $prepared['genre'] = htmlspecialchars($prepared['genre']);
+            $prepared['album']  = htmlspecialchars($prepared['album']);
+            $prepared['genre']  = htmlspecialchars($prepared['genre']);
 
             // adding random colors in the list
             $tag = '<tr class="' .($numloop%2 ? 'wh' : 'bl' ) . '">';

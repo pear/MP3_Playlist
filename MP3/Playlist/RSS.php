@@ -1,8 +1,5 @@
 <?php
 /* vim: set expandtab tabstop=4 shiftwidth=4 softtabstop=4 foldmethod=marker: */
-
-// {{{ Header
-
 /**
  * File contains MP3_Playlist_RSS class.
  *
@@ -22,18 +19,18 @@
  * obtain it through the world-wide-web, please send a note to
  * license@php.net so we can mail you a copy immediately.
  *
- * @category    File Formats
- * @package     MP3_Playlist
- * @author      David Costa <gurugeek@php.net>
- * @author      Ashley Hewson <morbidness@gmail.com>
- * @author      Firman Wandayandi <firman@php.net>
- * @copyright   Copyright (c) 2004-2005 David Costa
- * @license     http://www.php.net/license/3_0.txt
- *              The PHP License, version 3.0
- * @version     CVS: $Id$
+ * @category  File_Formats
+ * @package   MP3_Playlist
+ * @author    David Costa <gurugeek@php.net>
+ * @author    Ashley Hewson <morbidness@gmail.com>
+ * @author    Firman Wandayandi <firman@php.net>
+ * @copyright 2004-2005 David Costa
+ * @license   http://www.php.net/license/3_0.txt
+ *            The PHP License, version 3.0
+ * @version   CVS: $Id$
+ * @link      http://pear.php.net/package/MP3_Playlist
  */
 
-// }}}
 // {{{ Dependencies
 
 /**
@@ -47,15 +44,16 @@ require_once 'MP3/Playlist/Common.php';
 /**
  * Class MP3_Playlist_RSS, generates the playlist RSS feed.
  *
- * @category    File Formats
- * @package     MP3_Playlist
- * @author      David Costa <gurugeek@php.net>
- * @author      Ashley Hewson <morbidness@gmail.com>
- * @author      Firman Wandayandi <firman@php.net>
- * @copyright   Copyright (c) 2004-2005 David Costa
- * @license     http://www.php.net/license/3_0.txt
- *              The PHP License, version 3.0
- * @version     Release: @package_version@
+ * @category  File_Formats
+ * @package   MP3_Playlist
+ * @author    David Costa <gurugeek@php.net>
+ * @author    Ashley Hewson <morbidness@gmail.com>
+ * @author    Firman Wandayandi <firman@php.net>
+ * @copyright 2004-2005 David Costa
+ * @license   http://www.php.net/license/3_0.txt
+ *            The PHP License, version 3.0
+ * @version   Release: @package_version@
+ * @link      http://pear.php.net/package/MP3_Playlist
  */
 class MP3_Playlist_RSS extends MP3_Playlist_Common
 {
@@ -90,7 +88,7 @@ class MP3_Playlist_RSS extends MP3_Playlist_Common
      * link and keep within the description the other information available
      * namely the album, artist, and genre.
      *
-     * @param   array   $params Make parameters.
+     * @param array $params Make parameters.
      * <pre>
      * title        string  Feed main title
      * description  string  Feed description
@@ -119,9 +117,9 @@ class MP3_Playlist_RSS extends MP3_Playlist_Common
                                      ' "link" as link main description', -1);
         }
 
-        $title = $params['title'];
+        $title       = $params['title'];
         $description = isset($params['description']) ? $params['description'] : '';
-        $link = isset($params['link']) ? $params['link'] : '';
+        $link        = isset($params['link']) ? $params['link'] : '';
 
         $rssbody = '';
         foreach ($this->merged as $prepared) {

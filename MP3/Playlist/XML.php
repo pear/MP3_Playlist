@@ -1,8 +1,5 @@
 <?php
 /* vim: set expandtab tabstop=4 shiftwidth=4 softtabstop=4 foldmethod=marker: */
-
-// {{{ Header
-
 /**
  * File contains MP3_Playlist_XML class.
  *
@@ -22,18 +19,18 @@
  * obtain it through the world-wide-web, please send a note to
  * license@php.net so we can mail you a copy immediately.
  *
- * @category    File Formats
- * @package     MP3_Playlist
- * @author      David Costa <gurugeek@php.net>
- * @author      Ashley Hewson <morbidness@gmail.com>
- * @author      Firman Wandayandi <firman@php.net>
- * @copyright   Copyright (c) 2004-2005 David Costa
- * @license     http://www.php.net/license/3_0.txt
- *              The PHP License, version 3.0
- * @version     CVS: $Id$
+ * @category  File_Formats
+ * @package   MP3_Playlist
+ * @author    David Costa <gurugeek@php.net>
+ * @author    Ashley Hewson <morbidness@gmail.com>
+ * @author    Firman Wandayandi <firman@php.net>
+ * @copyright 2004-2005 David Costa
+ * @license   http://www.php.net/license/3_0.txt
+ *            The PHP License, version 3.0
+ * @version   CVS: $Id$
+ * @link      http://pear.php.net/package/MP3_Playlist
  */
 
-// }}}
 // {{{ Dependencies
 
 /**
@@ -47,15 +44,16 @@ require_once 'MP3/Playlist/Common.php';
 /**
  * Class MP3_Playlist_XML, generate the XML document for playlist.
  *
- * @category    File Formats
- * @package     MP3_Playlist
- * @author      David Costa <gurugeek@php.net>
- * @author      Ashley Hewson <morbidness@gmail.com>
- * @author      Firman Wandayandi <firman@php.net>
- * @copyright   Copyright (c) 2004-2005 David Costa
- * @license     http://www.php.net/license/3_0.txt
- *              The PHP License, version 3.0
- * @version     Release: @package_version@
+ * @category  File_Formats
+ * @package   MP3_Playlist
+ * @author    David Costa <gurugeek@php.net>
+ * @author    Ashley Hewson <morbidness@gmail.com>
+ * @author    Firman Wandayandi <firman@php.net>
+ * @copyright 2004-2005 David Costa
+ * @license   http://www.php.net/license/3_0.txt
+ *            The PHP License, version 3.0
+ * @version   Release: @package_version@
+ * @link      http://pear.php.net/package/MP3_Playlist
  */
 class MP3_Playlist_XML extends MP3_Playlist_Common
 {
@@ -85,8 +83,8 @@ class MP3_Playlist_XML extends MP3_Playlist_Common
     /**
      * Prepares the xml format for the loop used on makexml
      *
-     * @param   string $value  character data that goes into the XML element
-     * @param   string $key    the name of the XML element
+     * @param string $value character data that goes into the XML element
+     * @param string $key   the name of the XML element
      *
      * @return  TRUE
      */
@@ -102,19 +100,19 @@ class MP3_Playlist_XML extends MP3_Playlist_Common
     /**
      * Generates a valid XML with the playlist values.
      *
-     * @param   array $params (optional) No parameters, ignore this.
+     * @param array $params (optional) No parameters, ignore this.
      *
      * @return  bool TRUE
      */
     public function make($params = array())
     {
         // Defining XML headers
-        $this->result = '<?xml version="1.0" encoding="ISO-8859-1" ?>'."\n";
+        $this->result  = '<?xml version="1.0" encoding="ISO-8859-1" ?>'."\n";
         $this->result .= "<playlist>\n";
 
         // Adding the prexml formatted tags to each of the array members
         // adding also the track tag
-        foreach ($this->merged as $list){
+        foreach ($this->merged as $list) {
             $this->result .= "  <track>\n";
             array_walk($list, array(&$this, 'preXML'));
             $this->result .= "  </track>\n";

@@ -1,8 +1,5 @@
 <?php
 /* vim: set expandtab tabstop=4 shiftwidth=4 softtabstop=4 foldmethod=marker: */
-
-// {{{ Header
-
 /**
  * Class to generate playlists in m3u and other formats including smil,
  * sqlite, XHTML, RSS and raw XML
@@ -23,18 +20,18 @@
  * obtain it through the world-wide-web, please send a note to
  * license@php.net so we can mail you a copy immediately.
  *
- * @category    File Formats
- * @package     MP3_Playlist
- * @author      David Costa <gurugeek@php.net>
- * @author      Ashley Hewson <morbidness@gmail.com>
- * @author      Firman Wandayandi <firman@php.net>
- * @copyright   Copyright (c) 2004-2005 David Costa
- * @license     http://www.php.net/license/3_0.txt
- *              The PHP License, version 3.0
- * @version     CVS: $Id$
- */
+ * @category  File_Formats
+ * @package   MP3_Playlist
+ * @author    David Costa <gurugeek@php.net>
+ * @author    Ashley Hewson <morbidness@gmail.com>
+ * @author    Firman Wandayandi <firman@php.net>
+ * @copyright 2004-2005 David Costa
+ * @license   http://www.php.net/license/3_0.txt
+ *            The PHP License, version 3.0
+ * @version   CVS: $Id$
+ * @link      http://pear.php.net/package/MP3_Playlist
 
-// }}}
+ */
 // {{{ Dependencies
 
 /**
@@ -71,15 +68,16 @@ require_once 'Net/URL.php';
  * allows you to backup the list in an existing sqlite database or to create a
  * database and the table on the fly.
  *
- * @category    File Formats
- * @package     MP3_Playlist
- * @author      David Costa <gurugeek@php.net>
- * @author      Ashley Hewson <morbidness@gmail.com>
- * @author      Firman Wandayandi <firman@php.net>
- * @copyright   Copyright (c) 2004-2005 David Costa
- * @license     http://www.php.net/license/3_0.txt
- *              The PHP License, version 3.0
- * @version     Release: @package_version@
+ * @category  File_Formats
+ * @package   MP3_Playlist
+ * @author    David Costa <gurugeek@php.net>
+ * @author    Ashley Hewson <morbidness@gmail.com>
+ * @author    Firman Wandayandi <firman@php.net>
+ * @copyright 2004-2005 David Costa
+ * @license   http://www.php.net/license/3_0.txt
+ *            The PHP License, version 3.0
+ * @version   Release: @package_version@
+ * @link      http://pear.php.net/package/MP3_Playlist
  */
 class MP3_Playlist
 {
@@ -89,29 +87,29 @@ class MP3_Playlist
      * Error handling related Constants
      * Verbose error output in each of the cases
      */
-    const E_CANNOT_OPENDIR      = 'Unable to open the directory';
-    const E_CANNOT_SAVEFILE     = 'Unable to save file';
-    const E_CANNOT_OPENDB       = 'Unable to open the database';
-    const E_CANNOT_CREATETABLE  = 'Unable to create the playlist table';
-    const E_CANNOT_INSERT       = 'Unable to insert into the playlist table';
-    const E_CANNOT_SENDHEADER   = 'Unable to send HTTP header';
-    const E_INVALID_MERGE       = 'Unable to merge';
-    const E_INVALID_PLAYLIST    = 'Invalid playlist';
-    const E_UNKNOWN_TYPE        = 'Unknown format type';
-    const E_UNSUPPORTED_TYPE    = 'Unsupported format type';
-    const E_NOT_SAVEABLE        = 'Playlist format is not saveable';
-    const E_NOT_SENDABLE        = 'Playlist format is not sendable';
-    const E_REQUIRED_PARAM      = 'Required parameter';
+    const E_CANNOT_OPENDIR     = 'Unable to open the directory';
+    const E_CANNOT_SAVEFILE    = 'Unable to save file';
+    const E_CANNOT_OPENDB      = 'Unable to open the database';
+    const E_CANNOT_CREATETABLE = 'Unable to create the playlist table';
+    const E_CANNOT_INSERT      = 'Unable to insert into the playlist table';
+    const E_CANNOT_SENDHEADER  = 'Unable to send HTTP header';
+    const E_INVALID_MERGE      = 'Unable to merge';
+    const E_INVALID_PLAYLIST   = 'Invalid playlist';
+    const E_UNKNOWN_TYPE       = 'Unknown format type';
+    const E_UNSUPPORTED_TYPE   = 'Unsupported format type';
+    const E_NOT_SAVEABLE       = 'Playlist format is not saveable';
+    const E_NOT_SENDABLE       = 'Playlist format is not sendable';
+    const E_REQUIRED_PARAM     = 'Required parameter';
 
     /**
      * Output type made by MP3_Playlist.
      */
-    const TYPE_M3U      = 'M3U';
-    const TYPE_SMIL     = 'SMIL';
-    const TYPE_XML      = 'XML';
-    const TYPE_XHTML    = 'XHTML';
-    const TYPE_RSS      = 'RSS';
-    const TYPE_SQLITE   = 'SQLITE';
+    const TYPE_M3U    = 'M3U';
+    const TYPE_SMIL   = 'SMIL';
+    const TYPE_XML    = 'XML';
+    const TYPE_XHTML  = 'XHTML';
+    const TYPE_RSS    = 'RSS';
+    const TYPE_SQLITE = 'SQLITE';
 
     // }}}
     // {{{ Static Properties
@@ -209,10 +207,10 @@ class MP3_Playlist
      * Expects a reading directory, the output directory where the playlist will
      * be saved and the directory or URL to be used within the playlist.
      *
-     * @param   string $dir     The directory to scan
-     * @param   string $outdir  The directory where to save the playlist file
-     * @param   string $baseurl The base url to append on the playlist file
-     * @param   bool   $debug   (optional) Whether print debug message or not, default FALSE
+     * @param string $dir     The directory to scan
+     * @param string $outdir  The directory where to save the playlist file
+     * @param string $baseurl The base url to append on the playlist file
+     * @param bool   $debug   (optional) Whether print debug message or not, default FALSE
      *
      * @return  TRUE|PEAR_Error
      * @see     MP3_Playlist::fixPath()
@@ -221,7 +219,7 @@ class MP3_Playlist
     {
         // Taking the values from the constructor and assigning it to the
         // protected variables
-        $this->parseDirectory = self::fixPath($dir);
+        $this->parseDirectory  = self::fixPath($dir);
         $this->outputDirectory = self::fixPath($outdir);
 
         // Fix the URL if needed.
@@ -256,7 +254,9 @@ class MP3_Playlist
     /**
      * Output debug message.
      *
-     * @param string $msg Message.
+     * @param string $message Message.
+     *
+     * @return void
      */
     protected function debug($message)
     {
@@ -271,7 +271,7 @@ class MP3_Playlist
     /**
      * Convert Windows directory separator to Unix style and fix ending slash.
      *
-     * @param   string $dir Directory.
+     * @param string $dir Directory.
      *
      * @return  string result.
      */
@@ -294,16 +294,16 @@ class MP3_Playlist
     /**
      * Generates the URL from absolute path.
      *
-     * @param   string $absPath Absolute path.
+     * @param string $absPath Absolute path.
      *
      * @return  string URL.
      */
     protected function generateURL($absPath)
     {
         $absPath = str_replace($this->parseDirectory, '', $absPath);
-        $paths = explode('/', $absPath);
-        foreach ($paths as $key => $value)
-        {
+        $paths   = explode('/', $absPath);
+
+        foreach ($paths as $key => $value) {
             if (empty($value)) {
                 continue;
             }
@@ -326,7 +326,7 @@ class MP3_Playlist
      * playlist writing while Merged will be used for XML and a more
      * complete output including the ID3 tags.
      *
-     * @param   bool $dir (optional) Directory to parse, this param use for recursive
+     * @param bool $dir (optional) Directory to parse, this param use for recursive
      *                               purpose, default FALSE.
      *
      * @throws  PEAR_Exception
@@ -360,6 +360,7 @@ class MP3_Playlist
                 continue;
             } else if (strtolower(substr($entry, -4)) == '.mp3') {
                 $url = $this->generateURL($abspath);
+
                 $this->list[] = $url;
 
                 // preparing the $this->merged array which will contain both the
@@ -396,7 +397,7 @@ class MP3_Playlist
         // makeXHTML before merging
         $this->isMerged = true;
 
-        foreach($this->merged as $id => $detail) {
+        foreach ($this->merged as $id => $detail) {
             // input debug
             $this->debug('Read file "' . $detail['FullPath'] . '"');
 
@@ -421,7 +422,7 @@ class MP3_Playlist
             }
 
             $artist = trim($this->mp3->getTag('artists'));
-            if ($artist && !empty($artist)){
+            if ($artist && !empty($artist)) {
                 $this->merged[$id]['artist'] = $artist;
             } else {
                 $this->merged[$id]['artist'] = 'Unknown Artist';
@@ -468,7 +469,7 @@ class MP3_Playlist
      * Get list of files including append directory, location and ID3 tags for XML
      * and other manipulation.
      *
-     * @return  array
+     * @return  arrayf
      * @see     MP3_Playlist::mergeList()
      */
     public function getMerged()
@@ -486,7 +487,7 @@ class MP3_Playlist
     /**
      * Generates the playlist according to selected format.
      *
-     * @param   string $type Format type, use one of constants
+     * Available types include:
      * <pre>
      * MP3_Playlist::TYPE_M3U       M3U playlist
      * MP3_Playlist::TYPE_SMILL     SMILL playlist
@@ -495,9 +496,11 @@ class MP3_Playlist
      * MP3_Playlist::TYPE_RSS       RSS output
      * MP3_Playlist::TYPE_SQLITE    Save to SQLite database
      * </pre>
-     * @param   array $params (optional) Parameters, an associative array contains
+     *
+     * @param string $type    Format type, use one of constants
+     * @param array  $params  (optional) Parameters, an associative array contains
      *                                   values depend on the format.
-     * @param   bool $shuffle (optional) Whether to shuffle the list or not.
+     * @param bool   $shuffle (optional) Whether to shuffle the list or not.
      *                                   This parameter only affect on formats
      *                                   M3U, SMILL and XHTML
      *
@@ -518,10 +521,10 @@ class MP3_Playlist
             throw new PEAR_Exception(self::E_UNSUPPORTED_TYPE);
         }
 
-        $file = 'MP3/Playlist/' . self::$drivers[$type]['file'];
+        $file  = 'MP3/Playlist/' . self::$drivers[$type]['file'];
         $class = self::$drivers[$type]['class'];
 
-        include_once($file);
+        include_once $file;
         $this->playlist = new $class($this, $shuffle, $this->debug);
         return $this->playlist->make($params);
     }
@@ -532,7 +535,7 @@ class MP3_Playlist
     /**
      * Save the generated playlist into file.
      *
-     * @param   string $filename (optional) A filename for save
+     * @param string $filename (optional) A filename for save
      *                                     (without file extension).
      *
      * @throws  PEAR_Exception
@@ -554,7 +557,7 @@ class MP3_Playlist
     /**
      * Send the generated playlist to browser directly.
      *
-     * @param   string $filename (optional) A filename for send
+     * @param string $filename (optional) A filename for send
      *                                      (without file extension).
      *
      * @throws  PEAR_Exception
@@ -578,6 +581,7 @@ class MP3_Playlist
      *
      * @throws  PEAR_Exception
      * @see     MP3_Playlist_Common::show()
+     * @return  string
      */
     public function show()
     {
