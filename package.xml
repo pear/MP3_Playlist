@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<package packagerversion="1.4.9" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0
-http://pear.php.net/dtd/tasks-1.0.xsd
-http://pear.php.net/dtd/package-2.0
-http://pear.php.net/dtd/package-2.0.xsd">
+<package packagerversion="1.9.0" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0 http://pear.php.net/dtd/tasks-1.0.xsd http://pear.php.net/dtd/package-2.0 http://pear.php.net/dtd/package-2.0.xsd">
  <name>MP3_Playlist</name>
  <channel>pear.php.net</channel>
  <summary>Library to create MP3 playlists on the fly, several formats supported including XML, RSS and XHTML</summary>
@@ -10,9 +7,7 @@ http://pear.php.net/dtd/package-2.0.xsd">
 extend the rendering of MP3 playlists. It scans a local folder with
 all the MP3 files and outputs the playlist in several formats
 including M3U, SMIL, XML, XHTML with the possibility to backup the
-lists on the fly with an SQLite DB.
- 
- </description>
+lists on the fly with an SQLite DB.</description>
  <lead>
   <name>David Costa</name>
   <user>gurugeek</user>
@@ -25,80 +20,70 @@ lists on the fly with an SQLite DB.
   <email>firman@php.net</email>
   <active>yes</active>
  </lead>
- <date>2006-09-03</date>
- <time>13:40:06</time>
+ <date>2010-09-20</date>
+ <time>09:55:39</time>
  <version>
-  <release>0.5.1alpha1</release>
-  <api>0.5.1alpha1</api>
+  <release>0.5.2</release>
+  <api>0.5.2</api>
  </version>
  <stability>
   <release>alpha</release>
   <api>alpha</api>
  </stability>
  <license uri="http://www.php.net/license">PHP License</license>
- <notes>* Fixed bug #8369: Send does not take care of filename parameter
-* Minor fixed on MP3_Playlist class.
-* Minor fixed on examples
-* Added test files
-  
+ <notes>
+QA release
+Package 2.0
+Bug #8369 Send does not take care of filename parameter
+Bug #14935 Improve PHPCS
+Bug #14937 Make use of protected, not private
  </notes>
  <contents>
-  <dir name="/">
-   <dir name="docs">
-    <dir name="examples">
-     <dir name="include">
-      <file baseinstalldir="" name="footer.php" role="doc">
-       <tasks:replace from="@package_version@" to="version" type="package-info" />
-      </file>
-      <file baseinstalldir="" name="head.php" role="doc">
-       <tasks:replace from="@package_version@" to="version" type="package-info" />
-      </file>
-      <file baseinstalldir="" name="header.php" role="doc">
-       <tasks:replace from="@package_version@" to="version" type="package-info" />
-      </file>
-     </dir> <!-- /docs/examples/include -->
-     <file baseinstalldir="" name="index.php" role="doc">
-      <tasks:replace from="@package_version@" to="version" type="package-info" />
-     </file>
-     <file baseinstalldir="" name="result.php" role="doc">
-      <tasks:replace from="@package_version@" to="version" type="package-info" />
-     </file>
-    </dir> <!-- /docs/examples -->
-   </dir> <!-- /docs -->
-   <dir name="MP3">
-    <dir name="Playlist">
-     <file baseinstalldir="" name="Common.php" role="php">
-      <tasks:replace from="@package_version@" to="version" type="package-info" />
-     </file>
-     <file baseinstalldir="" name="M3U.php" role="php">
-      <tasks:replace from="@package_version@" to="version" type="package-info" />
-     </file>
-     <file baseinstalldir="" name="RSS.php" role="php">
-      <tasks:replace from="@package_version@" to="version" type="package-info" />
-     </file>
-     <file baseinstalldir="" name="SMIL.php" role="php">
-      <tasks:replace from="@package_version@" to="version" type="package-info" />
-     </file>
-     <file baseinstalldir="" name="SQLite.php" role="php">
-      <tasks:replace from="@package_version@" to="version" type="package-info" />
-     </file>
-     <file baseinstalldir="" name="XHTML.php" role="php">
-      <tasks:replace from="@package_version@" to="version" type="package-info" />
-     </file>
-     <file baseinstalldir="" name="XML.php" role="php">
-      <tasks:replace from="@package_version@" to="version" type="package-info" />
-     </file>
-    </dir> <!-- /MP3/Playlist -->
-    <file baseinstalldir="" name="Playlist.php" role="php">
-     <tasks:replace from="@package_version@" to="version" type="package-info" />
-    </file>
-   </dir> <!-- /MP3 -->
-   <dir name="tests">
-    <file baseinstalldir="" name="bug-8369.php" role="test">
-     <tasks:replace from="@package_version@" to="version" type="package-info" />
-    </file>
-   </dir> <!-- /tests -->
-  </dir> <!-- / -->
+  <dir baseinstalldir="/" name="/">
+   <file baseinstalldir="" md5sum="53acb6d71d35b42bfa5e10f27e743e97" name="docs/examples/index.php" role="doc">
+    <tasks:replace from="@package_version@" to="version" type="package-info" />
+   </file>
+   <file baseinstalldir="" md5sum="930bfbe5fc5d800778be56d135cfe7e1" name="docs/examples/result.php" role="doc">
+    <tasks:replace from="@package_version@" to="version" type="package-info" />
+   </file>
+   <file baseinstalldir="" md5sum="f108b057543d8fe52aeb657cc761fba5" name="docs/examples/include/footer.php" role="doc">
+    <tasks:replace from="@package_version@" to="version" type="package-info" />
+   </file>
+   <file baseinstalldir="" md5sum="b72e5f7ffb766c72536876c218505d8d" name="docs/examples/include/head.php" role="doc">
+    <tasks:replace from="@package_version@" to="version" type="package-info" />
+   </file>
+   <file baseinstalldir="" md5sum="96d503fdc5a1d7c1dd1f2cb5a5c8fa8c" name="docs/examples/include/header.php" role="doc">
+    <tasks:replace from="@package_version@" to="version" type="package-info" />
+   </file>
+   <file baseinstalldir="" md5sum="507265e56e53b558228f45c978f9680d" name="MP3/Playlist.php" role="php">
+    <tasks:replace from="@package_version@" to="version" type="package-info" />
+   </file>
+   <file baseinstalldir="" md5sum="fe04f4c73aa7e4d281dc7e71b22ec1d9" name="MP3/Playlist/Common.php" role="php">
+    <tasks:replace from="@package_version@" to="version" type="package-info" />
+   </file>
+   <file baseinstalldir="" md5sum="e3cbfe4f92fb3a8f145a96b9dbd9263a" name="MP3/Playlist/M3U.php" role="php">
+    <tasks:replace from="@package_version@" to="version" type="package-info" />
+   </file>
+   <file baseinstalldir="" md5sum="a3cec2b8bf749f0b9b3fcd400321545d" name="MP3/Playlist/RSS.php" role="php">
+    <tasks:replace from="@package_version@" to="version" type="package-info" />
+   </file>
+   <file baseinstalldir="" md5sum="e3e2bb33aeede0c4a39a0f782f13f850" name="MP3/Playlist/SMIL.php" role="php">
+    <tasks:replace from="@package_version@" to="version" type="package-info" />
+   </file>
+   <file baseinstalldir="" md5sum="a67c23c6dfc4fe0b42781dd45bc4fbd6" name="MP3/Playlist/SQLite.php" role="php">
+    <tasks:replace from="@package_version@" to="version" type="package-info" />
+   </file>
+   <file baseinstalldir="" md5sum="0e028c60dfe2836c99f0665a8098fb24" name="MP3/Playlist/XHTML.php" role="php">
+    <tasks:replace from="@package_version@" to="version" type="package-info" />
+   </file>
+   <file baseinstalldir="" md5sum="fb60f2eb4adb85b35ded7cf5a90fa744" name="MP3/Playlist/XML.php" role="php">
+    <tasks:replace from="@package_version@" to="version" type="package-info" />
+   </file>
+   <file baseinstalldir="" md5sum="ad45ceb7aa7f6320d33aad4529c19839" name="tests/bug-8369.php" role="test">
+    <tasks:replace from="@package_version@" to="version" type="package-info" />
+   </file>
+   <file baseinstalldir="/" md5sum="50e2c1235ea90a61df3218958d904e1c" name="generate_package_xml.php" role="php" />
+  </dir>
  </contents>
  <dependencies>
   <required>
@@ -138,8 +123,8 @@ lists on the fly with an SQLite DB.
    </stability>
    <date>2005-09-03</date>
    <license uri="http://www.php.net/license">PHP License</license>
-   <notes>Initial release of MP3_Playlist
-    
+   <notes>
+Initial release of MP3_Playlist
    </notes>
   </release>
   <release>
@@ -153,11 +138,30 @@ lists on the fly with an SQLite DB.
    </stability>
    <date>2006-09-03</date>
    <license uri="http://www.php.net/license">PHP License</license>
-   <notes>* Fixed bug #8369: Send does not take care of filename parameter
+   <notes>
+* Fixed bug #8369: Send does not take care of filename parameter
 * Minor fixed on MP3_Playlist class.
 * Minor fixed on examples
 * Added test files
-    
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>0.5.2</release>
+    <api>0.5.2</api>
+   </version>
+   <stability>
+    <release>alpha</release>
+    <api>alpha</api>
+   </stability>
+   <date>2010-09-20</date>
+   <license uri="http://www.php.net/license">PHP License</license>
+   <notes>
+QA release
+Package 2.0
+Bug #8369 Send does not take care of filename parameter
+Bug #14935 Improve PHPCS
+Bug #14937 Make use of protected, not private
    </notes>
   </release>
  </changelog>
