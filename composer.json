@@ -13,7 +13,7 @@
     ],
     "autoload": {
         "psr-0": {
-            "MP3_Playlist": "./"
+            "MP3": "./"
         }
     },
     "description": "More info available on: http://pear.php.net/package/MP3_Playlist",
@@ -28,7 +28,8 @@
     },
     "type": "library",
     "require": {
-        "pear/pear_exception": "*"
+        "pear/pear_exception": "*",
+        "pear/pear": "*"
     },
     "require-dev": {
         "phpunit/phpunit": "*"
